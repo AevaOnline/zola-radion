@@ -99,6 +99,19 @@
             class="social-icon"
           />
         </a>
+        {% endif %} {% if config.extra.linkedin %}
+        <a
+          href="{{ config.extra.linkedin }}"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="{{ get_url(path='icons/linkedin.svg') }}"
+            id="linkedin-icon"
+            alt="LinkedIn"
+            class="social-icon"
+          />
+        </a>
         {% endif %} {% if config.extra.bluesky %}
         <a
           href="{{ config.extra.bluesky }}"
