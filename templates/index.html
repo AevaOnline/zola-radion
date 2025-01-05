@@ -73,25 +73,6 @@
         <div class="search-results">
           <div class="search-results__items"></div>
         </div>
-        {% endif %} {% if config.extra.theme | default(value="toggle") ==
-        "toggle" %}
-        <a
-          id="dark-mode-toggle"
-          onclick="toggleTheme(); event.preventDefault();"
-          href="#"
-        >
-          <img
-            src="{{ get_url(path='icons/sun.svg') }}"
-            id="sun-icon"
-            style="filter: invert(1)"
-            alt="Light mode"
-          />
-          <img
-            src="{{ get_url(path='icons/moon.svg') }}"
-            id="moon-icon"
-            alt="Dark mode"
-          />
-        </a>
         {% endif %} {% if config.generate_feeds %}
         <a
           href="{{ get_url(path='atom.xml') | safe }}"
@@ -118,7 +99,39 @@
             class="social-icon"
           />
         </a>
-        {% endif %}
+        {% endif %} {% if config.extra.bluesky %}
+        <a
+          href="{{ config.extra.bluesky }}"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="{{ get_url(path='icons/bluesky.svg') }}"
+            id="bluesky-icon"
+            alt="Bluesky"
+            class="social-icon"
+          />
+        </a>
+        {% endif %} {% if config.extra.theme | default(value="toggle") ==
+        "toggle" %} | 
+        <a
+          id="dark-mode-toggle"
+          onclick="toggleTheme(); event.preventDefault();"
+          href="#"
+        >
+          <img
+            src="{{ get_url(path='icons/sun.svg') }}"
+            id="sun-icon"
+            style="filter: invert(1)"
+            alt="Light mode"
+          />
+          <img
+            src="{{ get_url(path='icons/moon.svg') }}"
+            id="moon-icon"
+            alt="Dark mode"
+          />
+        </a>
+        {% endif %} 
       </div>
 
       {% set theme = config.extra.theme | default(value="toggle") %}
