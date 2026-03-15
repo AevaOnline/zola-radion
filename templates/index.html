@@ -101,6 +101,7 @@
         </a>
         {% endif %} {% if config.extra.linkedin %}
         <a
+          rel="me"
           href="{{ config.extra.linkedin }}"
           class="feed-icon"
           rel="noopener noreferrer"
@@ -114,6 +115,7 @@
         </a>
         {% endif %} {% if config.extra.bluesky %}
         <a
+          rel="me"
           href="{{ config.extra.bluesky }}"
           class="feed-icon"
           rel="noopener noreferrer"
@@ -125,8 +127,22 @@
             class="social-icon"
           />
         </a>
+        {% endif %} {% if config.extra.mastodon %}
+        <a
+          rel="me"
+          href="{{ config.extra.mastodon }}"
+          class="feed-icon"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="{{ get_url(path='icons/mastodon.svg') }}"
+            id="mastodon-icon"
+            alt="Mastodon"
+            class="social-icon"
+          />
+        </a>
         {% endif %} {% if config.extra.theme | default(value="toggle") ==
-        "toggle" %} | 
+        "toggle" %} |
         <a
           id="dark-mode-toggle"
           onclick="toggleTheme(); event.preventDefault();"
@@ -144,7 +160,7 @@
             alt="Dark mode"
           />
         </a>
-        {% endif %} 
+        {% endif %}
       </div>
 
       {% set theme = config.extra.theme | default(value="toggle") %}
